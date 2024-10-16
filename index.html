@@ -10,26 +10,35 @@
 		<link href="/css/app.def7ef9b.css" rel="stylesheet">
 	</head>
 	<body>
+		<style>
+		        body {
+		            display: flex;
+		            justify-content: center; /* 水平居中 */
+		            align-items: center; /* 垂直居中 */
+		            height: 100vh; /* 使 body 充满视口高度 */
+		            margin: 0;
+		        }
+		</style>
+		<svg t="1729081930442" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1599" width="256" height="256"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64z m0 832c-51.9 0-102.2-10.1-149.5-30.2-45.7-19.3-86.8-47-122.1-82.3s-63-76.4-82.3-122.1c-20-47.3-30.2-97.6-30.2-149.5s10.1-102.2 30.2-149.5c17.3-40.9 41.3-78.1 71.5-110.8l542.6 542.6c-32.7 30.2-69.8 54.2-110.8 71.5C614.2 885.9 563.9 896 512 896z m282.8-124.3L252.3 229.2c32.5-29.9 69.6-53.8 110.3-71 47.3-20 97.6-30.2 149.5-30.2 51.9 0 102.2 10.1 149.5 30.2 45.7 19.3 86.8 47 122.1 82.3s63 76.4 82.3 122.1c20 47.3 30.2 97.6 30.2 149.5S886.1 614.3 866 661.6c-17.4 40.6-41.2 77.6-71.2 110.1z" fill="#FF0000" p-id="1600"></path></svg>
 		<noscript>
 			<strong>很抱歉,如果没有启用JavaScript,AIPIE无限储存图床就不能正常工作.请使其能够继续.</strong>
 		</noscript>
 		<div id="app" style="display:none"></div>
-		<script src="https://www.lcean.cf/js/console-ban.min.js"></script>
-		<script>
-		    // default options
-		    ConsoleBan.init()
-		    // custom options
-		    ConsoleBan.init({
-		      redirect: 'https://ai.fiime.cn'
-		    })
-		</script>
 		<script>
 		//禁用右键（防止右键查看源代码） 
 		    window.oncontextmenu = function () { return false; }
-		    //禁止任何键盘敲击事件（防止F12和shift+ctrl+i调起开发者工具） 
+		 //禁止任何键盘敲击事件（防止F12和shift+ctrl+i调起开发者工具） 
 		    window.onkeydown = window.onkeyup = window.onkeypress = function () {
-		    window.event.returnValue = false;
-		 	return false;
+		      window.event.returnValue = false;
+		 return false;
+		    }
+		 //如果用户在工具栏调起开发者工具，那么判断浏览器的可视高度和可视宽度是否有改变，如有改变则关闭本页面 
+		 var h = window.innerHeight, w = window.innerWidth;
+		    window.onresize = function () {
+		 if (h != window.innerHeight || w != window.innerWidth) {
+		        window.close();
+		        window.location = "about:blank";
+		      }
 		    }
 		</script>
 	</body>
